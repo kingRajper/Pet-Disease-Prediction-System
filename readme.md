@@ -99,7 +99,7 @@ pip install -r requirements.txt
 
 Due to GitHub file size limits, the full image dataset is hosted externally on Google Drive:
 
-📦 [Download Pet Disease Dataset (Google Drive)](https://drive.google.com/file/d/1jc3LVbpU5DtKeNYZGjE-Xu2tN32--JIq/view?usp=sharing)
+📦 [Download Pet Disease Dataset (Google Drive)](https://drive.google.com/file/d/1jc3LVbpU5DtKeNYZGjE-Xu2tN32--JIq/view?usp=drive_link)
 
 After downloading, unzip it into your project directory:
 
