@@ -1,0 +1,12 @@
+torch 
+torchvision  
+tqdm  
+scikit-learn  
+Pillow 
+numpy  
+fastapi 
+uvicorn 
+pydantic
+python-multipart
+transformers
+
