@@ -209,7 +209,7 @@ curl -X POST http://localhost:8000/predict-image/ \
 ```
 
 
-## 🤝 Contributors
+## 🤝 Contributor
 
 * **Iqrar Ali** — AI Developer, ML Specialist, Deep Learning Enthusiast
 
