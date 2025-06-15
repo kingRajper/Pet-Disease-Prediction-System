@@ -48,11 +48,11 @@ A multimodal AI system for predicting pet species and diseases using either symp
 
 ## 🧐 Features
 
-- ✅ **Multitask Learning**: Predict both pet species and disease from text
-- 📷 **Image Classifier**: Based on EfficientNet for vision-based disease detection
-- 🤖 **NLP Classifier**: DistilBERT-based classifier for symptom text input
-- ⚖️ **Imbalanced Dataset Handling**: Weighted loss for class balance
-- ⚡ **FastAPI Inference**: Easily test predictions via `/predict-text` or `/predict-image` routes
+* ✅ **Multitask Learning**: Predict both pet species and disease from text
+* 📷 **Image Classifier**: Based on EfficientNet for vision-based disease detection
+* 🤖 **NLP Classifier**: DistilBERT-based classifier for symptom text input
+* ⚖️ **Imbalanced Dataset Handling**: Weighted loss for class balance
+* ⚡ **FastAPI Inference**: Easily test predictions via `/predict-text` or `/predict-image` routes
 
 ---
 
@@ -73,24 +73,41 @@ pip install -r requirements.txt
 
 ### 📝 Text Dataset
 
-- Format: CSV (`pet.csv`)
-- Columns:
-  - `Symptoms` (text description of condition)
-  - `Species` (Cat, Dog, Fish)
-  - `Disease` (disease name, varies by species)
-- Split: 80% training, 20% testing (done in `text_dataset_loader.py`)
+* Format: CSV (`pet.csv`)
+* Columns:
+
+  * `Symptoms` (text description of condition)
+  * `Species` (Cat, Dog, Fish)
+  * `Disease` (disease name, varies by species)
+* Split: 80% training, 20% testing (done in `text_dataset_loader.py`)
 
 ### 🖼️ Image Dataset
 
-- Directory Format:
-  - `dataset/train/<species>/<disease>/`
-  - `dataset/test/<species>/<disease>/`
-  - `dataset/val/<species>/<disease>/`
-- Total 3 species: `cat`, `dog`, `fish`
-- Diseases under each species:
-  - **Cat**: cat\_ringworm, cat\_scabies, dermatits, fine, flea\_allergy
-  - **Dog**: Dog\_Ringworm, Dog\_Scabies, Helthy\_Dog, Hotspot
-  - **Fish**: Aeromoniasis Bacterial diseases, Bacterial disease gill, Bacterial Red disease, Fungal Saprolegniasis diseases, Healthy Fish, Parasitic diseases, Viral White disease diseases tail
+* Directory Format:
+
+  * `dataset/train/<species>/<disease>/`
+  * `dataset/test/<species>/<disease>/`
+  * `dataset/val/<species>/<disease>/`
+* Total 3 species: `cat`, `dog`, `fish`
+* Diseases under each species:
+
+  * **Cat**: cat\_ringworm, cat\_scabies, dermatits, fine, flea\_allergy
+  * **Dog**: Dog\_Ringworm, Dog\_Scabies, Helthy\_Dog, Hotspot
+  * **Fish**: Aeromoniasis Bacterial diseases, Bacterial disease gill, Bacterial Red disease, Fungal Saprolegniasis diseases, Healthy Fish, Parasitic diseases, Viral White disease diseases tail
+
+### 📥 Download Dataset
+
+Due to GitHub file size limits, the full image dataset is hosted externally on Google Drive:
+
+📦 [Download Pet Disease Dataset (Google Drive)](https://drive.google.com/file/d/1jc3LVbpU5DtKeNYZGjE-Xu2tN32--JIq/view?usp=sharing)
+
+After downloading, unzip it into your project directory:
+
+```bash
+unzip pet_disease_dataset.zip
+```
+
+This will create the expected `dataset/` folder structure used in the code.
 
 ---
 
@@ -98,10 +115,10 @@ pip install -r requirements.txt
 
 Your image data is managed using `image_dataset_loader.py`, which is responsible for:
 
-- Reading images organized by species/disease
-- Applying necessary transformations (resizing, normalization)
-- Creating PyTorch `ImageFolder`-based loaders
-- Returning `train_loader`, `val_loader`, `test_loader` for training EfficientNet
+* Reading images organized by species/disease
+* Applying necessary transformations (resizing, normalization)
+* Creating PyTorch `ImageFolder`-based loaders
+* Returning `train_loader`, `val_loader`, `test_loader` for training EfficientNet
 
 Example usage:
 
@@ -123,8 +140,8 @@ train_loader, val_loader, test_loader = get_image_dataloaders(
 python text_train.py
 ```
 
-- Outputs: `text_disease_model.pth`
-- Logs training accuracy for species and disease prediction
+* Outputs: `text_disease_model.pth`
+* Logs training accuracy for species and disease prediction
 
 ---
 
@@ -134,8 +151,8 @@ python text_train.py
 python image_train.py
 ```
 
-- Outputs: `image_disease_model.pth`
-- Trains EfficientNet to classify species and diseases from images
+* Outputs: `image_disease_model.pth`
+* Trains EfficientNet to classify species and diseases from images
 
 ---
 
@@ -149,8 +166,8 @@ This uses `main.py` to expose both text and image endpoints.
 
 ### 🔤 Text Inference Endpoint
 
-- Endpoint: `POST /predict-text/`
-- Input JSON:
+* Endpoint: `POST /predict-text/`
+* Input JSON:
 
 ```json
 {
@@ -158,7 +175,7 @@ This uses `main.py` to expose both text and image endpoints.
 }
 ```
 
-- Sample Output:
+* Sample Output:
 
 ```json
 {
@@ -171,16 +188,16 @@ This uses `main.py` to expose both text and image endpoints.
 
 ### 🖼️ Image Inference Endpoint
 
-- Endpoint: `POST /predict-image/`
-- Input: Multipart image file
-- Sample `curl` request:
+* Endpoint: `POST /predict-image/`
+* Input: Multipart image file
+* Sample `curl` request:
 
 ```bash
 curl -X POST http://localhost:8000/predict-image/ \
   -F image=@cat_flea.jpg
 ```
 
-- Sample Output:
+* Sample Output:
 
 ```json
 {
@@ -194,8 +211,6 @@ curl -X POST http://localhost:8000/predict-image/ \
 
 ## 🤝 Contributors
 
-- **Iqrar Ali** — AI Developer, ML Specialist, Deep Learning Enthusiast
+* **Iqrar Ali** — AI Developer, ML Specialist, Deep Learning Enthusiast
 
 ---
-
-
