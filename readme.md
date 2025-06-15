@@ -191,17 +191,6 @@ curl -X POST http://localhost:8000/predict-image/ \
 }
 ```
 
----
-
-## 🔮 To-Do
-
-- ✅ Complete image training pipeline and app
-- ✅ Integrate image inference via FastAPI
-- 📈 Add evaluation metrics and confusion matrices
-- 🧪 Add tests and validation scripts
-- 📸 Add example input images and outputs in README
-
----
 
 ## 🤝 Contributors
 
@@ -209,7 +198,4 @@ curl -X POST http://localhost:8000/predict-image/ \
 
 ---
 
-## 📄 License
-
-MIT License. See `LICENSE` file for details.
 
